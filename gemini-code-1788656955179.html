@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MVP Baseball Academy | Encuesta</title>
+<style>
+  * { box-sizing: border-box; font-family: 'Impact', 'Arial Black', sans-serif; }
+  
+  /* Fondo con patrón de rayas estilo uniforme de béisbol */
+  body { 
+    background-color: #0b1325;
+    background-image: repeating-linear-gradient(90deg, #0b1325, #0b1325 18px, #141f36 18px, #141f36 20px);
+    color: #ffffff; 
+    margin: 0; 
+    padding: 20px 10px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container { max-width: 550px; width: 100%; margin: auto; text-align: center; }
+
+  /* Un solo logo arriba */
+  .logo-main { 
+    width: 140px; 
+    height: auto; 
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+  }
+
+  /* Tarjeta principal estilo diamante */
+  .field-card {
+    background: radial-gradient(circle, #1a263f 0%, #0d1527 100%);
+    border: 2px solid #2a3a5e;
+    border-radius: 20px 20px 160px 160px;
+    padding: 25px 20px 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  }
+
+  .title { font-size: 15px; margin-bottom: 15px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Botones con Imágenes de Pelotas */
+  .ratings { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+  .rate { background: none; border: none; cursor: pointer; text-align: center; padding: 0; outline: none; }
+  
+  .ball-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    filter: grayscale(80%) opacity(0.6);
+    transition: all 0.25s ease;
+  }
+
+  .rate:hover .ball-img {
+    transform: scale(1.1);
+    filter: grayscale(0%) opacity(0.9);
+  }
+
+  .rate.on .ball-img {
+    filter: grayscale(0%) opacity(1) drop-shadow(0 0 8px #d90429);
+    transform: scale(1.12);
+  }
+
+  .rate span { 
+    display: block; 
+    font-size: 11px; 
+    margin-top: 6px; 
+    color: #a0aec0; 
+    font-family: Arial, sans-serif; 
+    font-weight: bold; 
+    transition: color 0.2s;
+  }
+  .rate.on span { color: #f4c430; }
+
+  /* Motivos opcionales */
+  #reasons { display: none; margin-bottom: 18px; text-align: left; }
+  .grid-reasons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .reason { 
+    font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; 
+    background: #ffffff; color: #0b1325; padding: 8px 10px; border-radius: 6px; 
+    cursor: pointer; display: flex; align-items: center; gap: 6px;
+  }
+
+  /* Campo de texto */
+  textarea {
+    width: 100%; height: 75px; border-radius: 10px; border: 1px solid #2a3a5e; 
+    background: #080d1a; color: #fff; padding: 10px; font-size: 13px; 
+    font-family: Arial, sans-serif; resize: none; margin-bottom: 20px;
+  }
+  textarea::placeholder { color: #5a6b8c; }
+
+  /* Botón de envío */
+  .btn-send {
+    background: #d90429; color: #ffffff; border: 2px solid #ffffff; 
+    padding: 10px 35px; font-size: 16px; border-radius: 25px; cursor: pointer; 
+    letter-spacing: 1px; text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(217, 4, 41, 0.4); transition: background 0.2s;
+  }
+  .btn-send:hover { background: #b00020; }
+  #thanks { display: none; padding: 40px 20px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Un solo logo arriba -->
+  <header>
+    <!-- Sustituye 'logo_mvp.png' por el archivo de tu logo circular -->
+    <img src="logo_mvp.png" class="logo-main" alt="MVP Academy">
+  </header>
+
+  <div id="survey" class="field-card">
+    
+    <!-- 1. Calificación -->
+    <div class="title">⚾ ¿CÓMO FUE TU EXPERIENCIA HOY?</div>
+    <div class="ratings">
+      <button type="button" class="rate" data-v="1">
+        <img src="pelota.png" class="ball-img" alt="1">
+        <span>MALA</span>
+      </button>
+      <button type="button" class="rate" data-v="2">
+        <img src="pelota.png" class="ball-img" alt="2">
+        <span>REGULAR</span>
+      </button>
+      <button type="button" class="rate" data-v="3">
+        <img src="pelota.png" class="ball-img" alt="3">
+        <span>ACEPTABLE</span>
+      </button>
+      <button type="button" class="rate" data-v="4">
+        <img src="pelota.png" class="ball-img" alt="4">
+        <span>BUENA</span>
+      </button>
+      <button type="button" class="rate" data-v="5">
+        <img src="pelota.png" class="ball-img" alt="5">
+        <span>EXCELENTE</span>
+      </button>
+    </div>
+
+    <!-- 2. Motivos opcionales -->
+    <div id="reasons">
+      <div class="title" style="color: #f4c430;">⚠️ ¿QUÉ PODEMOS MEJORAR?</div>
+      <div class="grid-reasons">
+        <label class="reason"><input type="checkbox" value="Coaches"> Coaches / Entrenadores</label>
+        <label class="reason"><input type="checkbox" value="Campos"> Campo / Jaulas</label>
+        <label class="reason"><input type="checkbox" value="Material"> Equipo / Pelotas</label>
+        <label class="reason"><input type="checkbox" value="Horarios"> Horarios / Puntualidad</label>
+      </div>
+    </div>
+
+    <!-- 3. Comentarios -->
+    <div class="title">💬 COMENTARIOS O SUGERENCIAS</div>
+    <textarea id="comment" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+    <button type="button" class="btn-send" id="send">ENVIAR RESPUESTA</button>
+  </div>
+
+  <!-- Pantalla final -->
+  <div class="field-card" id="thanks">
+    <h2 style="color: #f4c430;">¡GRACIAS POR TU OPINIÓN! ⚾</h2>
+    <p style="font-family: Arial, sans-serif; font-size: 14px;">Tus comentarios nos ayudan a seguir dando el 100% en el campo.</p>
+  </div>
+
+</div>
+
+<script>
+  let selectedScore = 0;
+  const rates = document.querySelectorAll(".rate");
+  const reasonsDiv = document.getElementById("reasons");
+
+  rates.forEach(rate => {
+    rate.addEventListener("click", () => {
+      selectedScore = Number(rate.dataset.v);
+      
+      rates.forEach(item => {
+        item.classList.toggle("on", Number(item.dataset.v) <= selectedScore);
+      });
+
+      if (selectedScore <= 3) {
+        reasonsDiv.style.display = "block";
+      } else {
+        reasonsDiv.style.display = "none";
+        document.querySelectorAll('#reasons input[type="checkbox"]').forEach(c => c.checked = false);
+      }
+    });
+  });
+
+  document.getElementById("send").addEventListener("click", () => {
+    if (!selectedScore) {
+      alert("⚾ Por favor selecciona una calificación.");
+      return;
+    }
+
+    document.getElementById("survey").style.display = "none";
+    document.getElementById("thanks").style.display = "block";
+  });
+</script>
+
+</body>
+</html>

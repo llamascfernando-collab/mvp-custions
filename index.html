@@ -13,13 +13,8 @@
   font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
-/* ================================
-   FONDO
-================================ */
-
 body { 
   background-color: #0b1325;
-
   background-image:
     repeating-linear-gradient(
       90deg,
@@ -32,18 +27,12 @@ body {
   color: #ffffff; 
   margin: 0; 
   padding: 20px 10px;
-
   min-height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-
-/* ================================
-   CONTENEDOR
-================================ */
 
 .container {
   max-width: 550px;
@@ -52,29 +41,14 @@ body {
   text-align: center;
 }
 
-
-/* ================================
-   LOGO
-================================ */
-
 .logo-main { 
   width: 150px; 
   height: auto; 
   margin-bottom: 20px;
-
-  filter:
-    drop-shadow(
-      0 4px 10px rgba(0,0,0,0.5)
-    );
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-
-/* ================================
-   TARJETA
-================================ */
-
 .field-card {
-
   background:
     radial-gradient(
       circle,
@@ -83,893 +57,498 @@ body {
     );
 
   border: 2px solid #2a3a5e;
+  border-radius: 20px 20px 160px 160px;
+  padding: 25px 20px 40px;
 
-  border-radius:
-    20px 20px 160px 160px;
-
-  padding:
-    25px 20px 40px;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.7);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
-
 .title {
-
   font-size: 15px;
-
   margin-bottom: 15px;
-
   letter-spacing: 1px;
-
   text-transform: uppercase;
 }
 
-
-/* ================================
-   CALIFICACIONES
-================================ */
-
 .ratings {
-
   display: flex;
-
   justify-content: center;
-
   gap: 8px;
-
   margin-bottom: 20px;
 }
 
-
 .rate {
-
   background: none;
-
   border: none;
-
   cursor: pointer;
-
   text-align: center;
-
   padding: 0;
-
   outline: none;
 }
 
-
 .ball-img {
-
   width: 55px;
-
   height: 55px;
-
   object-fit: contain;
 
   filter:
     grayscale(80%)
     opacity(0.6);
 
-  transition:
-    all 0.25s ease;
+  transition: all 0.25s ease;
 }
-
 
 .rate:hover .ball-img {
-
-  transform:
-    scale(1.1);
-
-  filter:
-    grayscale(0%)
-    opacity(0.9);
+  transform: scale(1.1);
+  filter: grayscale(0%) opacity(0.9);
 }
 
-
 .rate.on .ball-img {
-
   filter:
     grayscale(0%)
     opacity(1)
-    drop-shadow(
-      0 0 8px #d90429
-    );
+    drop-shadow(0 0 8px #d90429);
 
-  transform:
-    scale(1.12);
+  transform: scale(1.12);
 }
-
 
 .rate span { 
-
   display: block; 
-
   font-size: 11px; 
-
   margin-top: 6px; 
-
   color: #a0aec0; 
-
-  font-family:
-    Arial,
-    sans-serif; 
-
-  font-weight: bold;
-
-  transition:
-    color 0.2s;
+  font-family: Arial, sans-serif; 
+  font-weight: bold; 
+  transition: color 0.2s;
 }
-
 
 .rate.on span {
-
   color: #f4c430;
-
 }
-
-
-/* ================================
-   MOTIVOS
-================================ */
 
 #reasons {
-
   display: none;
-
   margin-bottom: 18px;
-
   text-align: left;
-
 }
-
 
 .grid-reasons {
-
   display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-
 }
 
-
 .reason { 
-
-  font-family:
-    Arial,
-    sans-serif;
-
+  font-family: Arial, sans-serif;
   font-size: 11px;
-
   font-weight: bold; 
 
   background: #ffffff;
-
   color: #0b1325;
 
   padding: 8px 10px;
-
   border-radius: 6px; 
 
   cursor: pointer;
 
   display: flex;
-
   align-items: center;
-
   gap: 6px;
-
 }
 
-
-/* ================================
-   COMENTARIOS
-================================ */
-
 textarea {
-
   width: 100%;
-
   height: 75px;
 
   border-radius: 10px;
+  border: 1px solid #2a3a5e; 
 
-  border:
-    1px solid #2a3a5e; 
-
-  background:
-    #080d1a;
-
+  background: #080d1a;
   color: #fff;
 
   padding: 10px;
-
   font-size: 13px; 
-
-  font-family:
-    Arial,
-    sans-serif;
+  font-family: Arial, sans-serif;
 
   resize: none;
-
   margin-bottom: 20px;
-
 }
-
 
 textarea::placeholder {
-
   color: #5a6b8c;
-
 }
-
-
-/* ================================
-   BOTÓN
-================================ */
 
 .btn-send {
+  background: #d90429;
+  color: #ffffff;
 
-  background:
-    #d90429;
+  border: 2px solid #ffffff; 
 
-  color:
-    #ffffff;
+  padding: 10px 35px;
+  font-size: 16px;
 
-  border:
-    2px solid #ffffff; 
+  border-radius: 25px;
+  cursor: pointer; 
 
-  padding:
-    10px 35px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 
-  font-size:
-    16px;
+  box-shadow: 0 4px 12px rgba(217,4,41,0.4);
 
-  border-radius:
-    25px;
-
-  cursor:
-    pointer; 
-
-  letter-spacing:
-    1px;
-
-  text-transform:
-    uppercase;
-
-  box-shadow:
-    0 4px 12px
-    rgba(217,4,41,0.4);
-
-  transition:
-    background 0.2s;
+  transition: background 0.2s;
 }
-
 
 .btn-send:hover {
-
-  background:
-    #b00020;
-
+  background: #b00020;
 }
-
 
 .btn-send:disabled {
-
   opacity: 0.6;
-
   cursor: not-allowed;
-
 }
-
-
-/* ================================
-   GRACIAS
-================================ */
 
 #thanks {
-
   display: none;
-
-  padding:
-    40px 20px;
-
+  padding: 40px 20px;
 }
-
-
-/* ================================
-   CELULARES
-================================ */
 
 @media(max-width:500px){
 
   .ball-img {
-
     width: 48px;
-
     height: 48px;
-
   }
 
   .ratings {
-
     gap: 4px;
-
   }
 
   .rate span {
-
     font-size: 9px;
-
   }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="container">
 
-
-<!-- ================================
-     LOGO
-================================ -->
-
 <header>
-
-<img
-src="mvp_image-removebg-preview (3).png"
-class="logo-main"
-alt="MVP Academy">
-
+  <img
+    src="mvp_image-removebg-preview (3).png"
+    class="logo-main"
+    alt="MVP Academy">
 </header>
 
 
+<div id="survey" class="field-card">
 
-<!-- ================================
-     ENCUESTA
-================================ -->
-
-<div
-id="survey"
-class="field-card">
+  <div class="title">
+    ⚾ ¿CÓMO FUE TU EXPERIENCIA HOY?
+  </div>
 
 
-<!-- PREGUNTA -->
+  <div class="ratings">
 
-<div class="title">
+    <button type="button" class="rate" data-v="1">
+      <img
+        src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
+        class="ball-img"
+        alt="1">
+      <span>MALA</span>
+    </button>
 
-⚾ ¿CÓMO FUE TU EXPERIENCIA HOY?
+    <button type="button" class="rate" data-v="2">
+      <img
+        src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
+        class="ball-img"
+        alt="2">
+      <span>REGULAR</span>
+    </button>
 
-</div>
+    <button type="button" class="rate" data-v="3">
+      <img
+        src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
+        class="ball-img"
+        alt="3">
+      <span>ACEPTABLE</span>
+    </button>
 
+    <button type="button" class="rate" data-v="4">
+      <img
+        src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
+        class="ball-img"
+        alt="4">
+      <span>BUENA</span>
+    </button>
 
+    <button type="button" class="rate" data-v="5">
+      <img
+        src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
+        class="ball-img"
+        alt="5">
+      <span>EXCELENTE</span>
+    </button>
 
-<!-- ================================
-     CALIFICACIÓN
-================================ -->
-
-<div class="ratings">
-
-
-<button
-type="button"
-class="rate"
-data-v="1">
-
-<img
-src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
-class="ball-img"
-alt="1">
-
-<span>MALA</span>
-
-</button>
-
-
-
-<button
-type="button"
-class="rate"
-data-v="2">
-
-<img
-src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
-class="ball-img"
-alt="2">
-
-<span>REGULAR</span>
-
-</button>
+  </div>
 
 
+  <div id="reasons">
 
-<button
-type="button"
-class="rate"
-data-v="3">
+    <div class="title" style="color:#f4c430;">
+      ⚠️ ¿QUÉ PODEMOS MEJORAR?
+    </div>
 
-<img
-src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
-class="ball-img"
-alt="3">
+    <div class="grid-reasons">
 
-<span>ACEPTABLE</span>
+      <label class="reason">
+        <input type="checkbox" value="Coaches">
+        Coaches / Entrenadores
+      </label>
 
-</button>
+      <label class="reason">
+        <input type="checkbox" value="Campos">
+        Campo / Jaulas
+      </label>
+
+      <label class="reason">
+        <input type="checkbox" value="Material">
+        Equipo / Pelotas
+      </label>
+
+      <label class="reason">
+        <input type="checkbox" value="Horarios">
+        Horarios / Puntualidad
+      </label>
+
+    </div>
+
+  </div>
 
 
+  <div class="title">
+    💬 COMENTARIOS O SUGERENCIAS
+  </div>
 
-<button
-type="button"
-class="rate"
-data-v="4">
-
-<img
-src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
-class="ball-img"
-alt="4">
-
-<span>BUENA</span>
-
-</button>
+  <textarea
+    id="comment"
+    placeholder="Escribe tu mensaje aquí..."></textarea>
 
 
+  <button
+    type="button"
+    class="btn-send"
+    id="send">
 
-<button
-type="button"
-class="rate"
-data-v="5">
+    ENVIAR RESPUESTA
 
-<img
-src="Gemini_Generated_Image_rfkocdrfkocdrfko-removebg-preview (1).png"
-class="ball-img"
-alt="5">
-
-<span>EXCELENTE</span>
-
-</button>
-
+  </button>
 
 </div>
 
 
+<div class="field-card" id="thanks">
 
-<!-- ================================
-     MOTIVOS
-================================ -->
+  <h2 style="color:#f4c430;">
+    ¡GRACIAS POR TU OPINIÓN! ⚾
+  </h2>
 
-<div id="reasons">
-
-
-<div
-class="title"
-style="color:#f4c430;">
-
-⚠️ ¿QUÉ PODEMOS MEJORAR?
-
-</div>
-
-
-<div class="grid-reasons">
-
-
-<label class="reason">
-
-<input
-type="checkbox"
-value="Coaches">
-
-Coaches / Entrenadores
-
-</label>
-
-
-
-<label class="reason">
-
-<input
-type="checkbox"
-value="Campos">
-
-Campo / Jaulas
-
-</label>
-
-
-
-<label class="reason">
-
-<input
-type="checkbox"
-value="Material">
-
-Equipo / Pelotas
-
-</label>
-
-
-
-<label class="reason">
-
-<input
-type="checkbox"
-value="Horarios">
-
-Horarios / Puntualidad
-
-</label>
-
+  <p style="font-family:Arial,sans-serif;font-size:14px;">
+    Tus comentarios nos ayudan a seguir dando el 100% en el campo.
+  </p>
 
 </div>
 
 </div>
 
-
-
-<!-- ================================
-     COMENTARIOS
-================================ -->
-
-<div class="title">
-
-💬 COMENTARIOS O SUGERENCIAS
-
-</div>
-
-
-<textarea
-id="comment"
-placeholder="Escribe tu mensaje aquí..."></textarea>
-
-
-
-<!-- ================================
-     ENVIAR
-================================ -->
-
-<button
-type="button"
-class="btn-send"
-id="send">
-
-ENVIAR RESPUESTA
-
-</button>
-
-
-</div>
-
-
-
-<!-- ================================
-     GRACIAS
-================================ -->
-
-<div
-class="field-card"
-id="thanks">
-
-
-<h2
-style="color:#f4c430;">
-
-¡GRACIAS POR TU OPINIÓN! ⚾
-
-</h2>
-
-
-<p
-style="
-font-family:Arial,sans-serif;
-font-size:14px;
-">
-
-Tus comentarios nos ayudan a seguir dando el 100% en el campo.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- ================================
-     JAVASCRIPT
-================================ -->
 
 <script>
 
-
-// ================================
-// CONFIGURACIÓN
-// ================================
-
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwaoD_K89RiZDqCiZ9V4PA7TcOn7PCDxils31WMj3kShmIw_PMs8EQIFKMTo6qnkecp/exec";
+"https://script.google.com/macros/s/AKfycbwlA5eJ969CFLIKgBnDajlEJiq72MioBllV3LaTyW_kQqwKgtAr8s0PuzVka_Cwm7Fc/exec";
 
-
-// Nombre que aparecerá en Sheets
 const SUCURSAL =
 "MVP Baseball Academy";
 
-
-
 let selectedScore = 0;
-
 
 const rates =
 document.querySelectorAll(".rate");
 
-
 const reasonsDiv =
 document.getElementById("reasons");
-
 
 const sendButton =
 document.getElementById("send");
 
 
-
-// ================================
-// SELECCIONAR CALIFICACIÓN
-// ================================
-
 rates.forEach(rate => {
 
-  rate.addEventListener(
-    "click",
-    () => {
+  rate.addEventListener("click", () => {
 
+    selectedScore =
+      Number(rate.dataset.v);
 
-      selectedScore =
-        Number(
-          rate.dataset.v
-        );
+    rates.forEach(item => {
 
-
-      rates.forEach(item => {
-
-        item.classList.toggle(
-          "on",
-          Number(item.dataset.v)
-          <= selectedScore
-        );
-
-      });
-
-
-
-      // Si califican 1, 2 o 3
-      // mostramos motivos
-
-      if(selectedScore <= 3){
-
-        reasonsDiv.style.display =
-          "block";
-
-      }
-
-      else{
-
-        reasonsDiv.style.display =
-          "none";
-
-
-        document
-        .querySelectorAll(
-          '#reasons input[type="checkbox"]'
-        )
-        .forEach(c => {
-
-          c.checked = false;
-
-        });
-
-      }
-
-    }
-  );
-
-});
-
-
-
-// ================================
-// ENVIAR ENCUESTA
-// ================================
-
-sendButton.addEventListener(
-  "click",
-  async () => {
-
-
-    // Comprobar calificación
-
-    if(!selectedScore){
-
-      alert(
-        "⚾ Por favor selecciona una calificación."
-      );
-
-      return;
-
-    }
-
-
-
-    // ================================
-    // OBTENER MOTIVOS
-    // ================================
-
-    const checks =
-      document.querySelectorAll(
-        '#reasons input[type="checkbox"]:checked'
-      );
-
-
-    const motivosArray = [];
-
-
-    checks.forEach(check => {
-
-      motivosArray.push(
-        check.value
+      item.classList.toggle(
+        "on",
+        Number(item.dataset.v) <= selectedScore
       );
 
     });
 
 
-    const motivos =
-      motivosArray.length > 0
-      ?
-      motivosArray.join(", ")
-      :
-      "Ninguno";
+    if(selectedScore <= 3){
 
+      reasonsDiv.style.display =
+        "block";
 
+    } else {
 
-    // ================================
-    // COMENTARIO
-    // ================================
+      reasonsDiv.style.display =
+        "none";
 
-    const comentario =
       document
-      .getElementById("comment")
-      .value
-      .trim()
-      ||
-      "Sin comentarios";
+      .querySelectorAll(
+        '#reasons input[type="checkbox"]'
+      )
+      .forEach(c => {
+        c.checked = false;
+      });
+
+    }
+
+  });
+
+});
 
 
+sendButton.addEventListener("click", async () => {
 
-    // ================================
-    // DATOS QUE VAN A GOOGLE SHEETS
-    // ================================
+  if(!selectedScore){
 
-    const datos = {
+    alert(
+      "⚾ Por favor selecciona una calificación."
+    );
 
-      calificacion:
-        selectedScore,
-
-      motivos:
-        motivos,
-
-      comentario:
-        comentario,
-
-      sucursal:
-        SUCURSAL
-
-    };
+    return;
+  }
 
 
+  const checks =
+    document.querySelectorAll(
+      '#reasons input[type="checkbox"]:checked'
+    );
 
-    // ================================
-    // CAMBIAR BOTÓN
-    // ================================
+
+  const motivosArray = [];
+
+
+  checks.forEach(check => {
+
+    motivosArray.push(
+      check.value
+    );
+
+  });
+
+
+  const motivos =
+    motivosArray.length > 0
+    ? motivosArray.join(", ")
+    : "Ninguno";
+
+
+  const comentario =
+    document
+    .getElementById("comment")
+    .value
+    .trim()
+    ||
+    "Sin comentarios";
+
+
+  const datos = {
+
+    calificacion:
+      selectedScore,
+
+    motivos:
+      motivos,
+
+    comentario:
+      comentario,
+
+    sucursal:
+      SUCURSAL
+
+  };
+
+
+  sendButton.disabled =
+    true;
+
+  sendButton.textContent =
+    "ENVIANDO...";
+
+
+  try {
+
+    await fetch(
+      SCRIPT_URL,
+      {
+        method: "POST",
+
+        mode: "no-cors",
+
+        headers: {
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+
+        body:
+          JSON.stringify(datos)
+      }
+    );
+
+
+    document
+    .getElementById("survey")
+    .style.display =
+      "none";
+
+
+    document
+    .getElementById("thanks")
+    .style.display =
+      "block";
+
+
+  } catch(error) {
+
+    console.error(error);
+
+    alert(
+      "⚠️ No se pudo enviar la respuesta. Intenta nuevamente."
+    );
+
 
     sendButton.disabled =
-      true;
+      false;
 
 
     sendButton.textContent =
-      "ENVIANDO...";
-
-
-
-    // ================================
-    // MANDAR A APPS SCRIPT
-    // ================================
-
-    try{
-
-
-      await fetch(
-        SCRIPT_URL,
-        {
-
-          method:
-            "POST",
-
-          mode:
-            "no-cors",
-
-          headers:{
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-          body:
-            JSON.stringify(
-              datos
-            )
-
-        }
-      );
-
-
-
-      // ================================
-      // MOSTRAR GRACIAS
-      // ================================
-
-      document
-      .getElementById("survey")
-      .style.display =
-        "none";
-
-
-      document
-      .getElementById("thanks")
-      .style.display =
-        "block";
-
-
-
-    }
-
-    catch(error){
-
-
-      console.error(
-        error
-      );
-
-
-      alert(
-        "⚠️ No se pudo enviar la respuesta. Intenta nuevamente."
-      );
-
-
-      sendButton.disabled =
-        false;
-
-
-      sendButton.textContent =
-        "ENVIAR RESPUESTA";
-
-
-    }
-
+      "ENVIAR RESPUESTA";
 
   }
-);
 
+});
 
 </script>
-
 
 </body>
 </html>

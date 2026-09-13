@@ -305,22 +305,22 @@ textarea::placeholder {
     <div class="grid-reasons">
 
       <label class="reason">
-        <input type="checkbox" value="Coaches">
+        <input type="checkbox" value="Coaches / Entrenadores">
         Coaches / Entrenadores
       </label>
 
       <label class="reason">
-        <input type="checkbox" value="Campos">
+        <input type="checkbox" value="Campo / Jaulas">
         Campo / Jaulas
       </label>
 
       <label class="reason">
-        <input type="checkbox" value="Material">
+        <input type="checkbox" value="Equipo / Pelotas">
         Equipo / Pelotas
       </label>
 
       <label class="reason">
-        <input type="checkbox" value="Horarios">
+        <input type="checkbox" value="Horarios / Puntualidad">
         Horarios / Puntualidad
       </label>
 
@@ -367,8 +367,8 @@ textarea::placeholder {
 
 <script>
 
-const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbwlA5eJ969CFLIKgBnDajlEJiq72MioBllV3LaTyW_kQqwKgtAr8s0PuzVka_Cwm7Fc/exec";
+const FORMSPREE_URL =
+"https://formspree.io/f/xnpqkgvb";
 
 const SUCURSAL =
 "MVP Baseball Academy";
@@ -474,17 +474,17 @@ sendButton.addEventListener("click", async () => {
 
   const datos = {
 
-    calificacion:
-      selectedScore,
+    "Sucursal":
+      SUCURSAL,
 
-    motivos:
+    "Calificación":
+      selectedScore + " / 5",
+
+    "Motivos":
       motivos,
 
-    comentario:
-      comentario,
-
-    sucursal:
-      SUCURSAL
+    "Comentarios":
+      comentario
 
   };
 
@@ -498,22 +498,32 @@ sendButton.addEventListener("click", async () => {
 
   try {
 
-    await fetch(
-      SCRIPT_URL,
+    const response = await fetch(
+      FORMSPREE_URL,
       {
         method: "POST",
 
-        mode: "no-cors",
-
         headers: {
           "Content-Type":
-            "text/plain;charset=utf-8"
+            "application/json",
+
+          "Accept":
+            "application/json"
         },
 
         body:
           JSON.stringify(datos)
       }
     );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        "Error de Formspree"
+      );
+
+    }
 
 
     document
